@@ -24,37 +24,51 @@
             myMapNode.Add(16, "paranoid");
             myMapNode.Add(17, "avoidable");
             myMapNode.Add(18, "situations");
-           
-           
-            myMapNode.Get(0);
-            myMapNode.Get(1);
-            myMapNode.Get(2);
-            myMapNode.Get(3);
-            myMapNode.Get(4);
-            myMapNode.Get(5);
-            myMapNode.Get(6);
-            myMapNode.Get(7);
-            myMapNode.Get(8);
-            myMapNode.Get(9);
-            myMapNode.Get(10);
-            myMapNode.Get(11);
-            myMapNode.Get(12);
-            myMapNode.Get(13);
-            myMapNode.Get(14);
-            myMapNode.Get(15);
-            myMapNode.Get(16);
-            myMapNode.Get(17);
-            myMapNode.Get(18);
-         
 
 
-            Console.WriteLine("The Added Statement is :: ");
-            for(int i=0;i< myMapNode.array.Length;i++)
+            //myMapNode.Get(0);
+            //myMapNode.Get(1);
+            //myMapNode.Get(2);
+            //myMapNode.Get(3);
+            //myMapNode.Get(4);
+            //myMapNode.Get(5);
+            //myMapNode.Get(6);
+            //myMapNode.Get(7);
+            //myMapNode.Get(8);
+            //myMapNode.Get(9);
+            //myMapNode.Get(10);
+            //myMapNode.Get(11);
+            //myMapNode.Get(12);
+            //myMapNode.Get(13);
+            //myMapNode.Get(14);
+            //myMapNode.Get(15);
+            //myMapNode.Get(16);
+            //myMapNode.Get(17);
+            //myMapNode.Get(18);
+
+            for (int i = 0; i < myMapNode.size; i++)
             {
-                Console.WriteLine($"{myMapNode.array[i]}");
+                myMapNode.Get(i);
             }
-            Console.WriteLine("Frequency of Words is : ");
-            myMapNode.FrequencyOfWords(myMapNode.array,myMapNode.array.Length);
+
+            Console.WriteLine("The Added Paragraph is :: ");
+            for (int i = 0; i < myMapNode.array.Length; i++)
+            {
+                Console.Write($"{myMapNode.array[i]} ");
+            }
+            Console.WriteLine("\n\n************** Frequency of Words **************");
+            myMapNode.FrequencyOfWords(myMapNode.array, myMapNode.array.Length);
+
+            myMapNode.Remove(17);
+            myMapNode.Get(17);
+            //myMapNode.array = myMapNode.array.Where(val => val != "avoidable").ToArray();
+            Console.WriteLine("\nThe Updated Paragraph is :: ");
+            for (int i = 0; i < myMapNode.array.Length; i++)
+            {
+                Console.Write($"{myMapNode.array[i]} ");
+            }
+            Console.WriteLine();
+
         }
     }
 }

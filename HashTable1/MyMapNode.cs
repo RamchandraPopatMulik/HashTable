@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HashTable1
 {
-    internal class MyMapNode<K, V>
+    public class MyMapNode<K, V>
     {
         public readonly int size;
         private readonly LinkedList<KeyValuePair<K, V>>[] items;
@@ -25,7 +25,7 @@ namespace HashTable1
         public void Add(K key, V value)
         {
             int index = GetArrayPosition(key);
-            if (items[index]==null)
+            if (items[index] == null)
             {
                 items[index] = new LinkedList<KeyValuePair<K, V>>();
                 items[index].AddLast(new KeyValuePair<K, V>(key, value));
@@ -41,40 +41,54 @@ namespace HashTable1
             bool Exist = false;
             foreach (KeyValuePair<K, V> items in items[index])
             {
-                if(items.Key.Equals(key))
+                if (items.Key.Equals(key))
                 {
                     Exist = true;
                     array[index] = items.Value;
                 }
             }
-            if(!Exist)
+            if (!Exist)
             {
                 Console.WriteLine($"key = '{key}' Doesn,t Exist in Hash Table");
             }
         }
-        public void FrequencyOfWords(V[] arr,int arrLength)
+        public void FrequencyOfWords(V[] arr, int arrLength)
         {
             bool[] visited = new bool[arrLength];
             int countWords = 0;
-            for(int i=0;i< arrLength;i++)
+            for (int i = 0; i < arrLength; i++)
             {
                 countWords++;
-                if (visited[i]==true)
+                if (visited[i] == true)
                 {
                     continue;
                 }
                 int count = 1;
-                for(int j=i+1;j<arrLength;j++)
+                for (int j = i + 1; j < arrLength; j++)
                 {
                     if (arr[i].Equals(arr[j]))
                     {
-                        visited[j]=true;
+                        visited[j] = true;
                         count++;
                     }
                 }
                 Console.WriteLine($"'arr[i]' is Repeated {count} Times");
             }
             Console.Write($"Total Words are {countWords}");
+        }
+
+        public void Remove(K key)
+        {
+            int index = GetArrayPosition(key);
+            KeyValuePair<K, V> foundItem = default(KeyValuePair<K, V>);
+            foreach (KeyValuePair<K, V> item in items[index])
+            {
+                if (item.Key.Equals(key))
+                {
+                    items[index].Remove(item);
+                    break;
+                }
+            }
         }
     }
     public struct KeyValue<K,V>
