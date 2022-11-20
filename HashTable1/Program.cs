@@ -17,12 +17,12 @@
             myMapNode.Get(3);
             myMapNode.Get(4);
             myMapNode.Get(5);
-            Console.WriteLine(" The Added Statement is :: ");
+            Console.WriteLine("The Added Statement is :: ");
             for(int i=0;i< myMapNode.array.Length;i++)
             {
                 Console.WriteLine($"{myMapNode.array[i]}");
             }
-            Console.WriteLine(" Frequency of Words is : ");
+            Console.WriteLine("Frequency of Words is : ");
             myMapNode.FrequencyOfWords(myMapNode.array,myMapNode.array.Length);
         }
     }
